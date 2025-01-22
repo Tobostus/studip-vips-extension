@@ -1,0 +1,100 @@
+/* This program visualizes mathematical series in a browser.
+Copyright (C) 2025  Tobias Straube
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
+.injected-button {
+    background-size: 400% auto;
+    background-position: right center;
+    background-image: linear-gradient(to right, green 0%, lightgreen 25%, green 49%, #28497C 50%, #3B6CB8 75%, #28497C 100%);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 3px;
+}
+
+.injected-button:hover {
+    background-position: 75% center;
+}
+
+.injected-button.green  {
+    background-position: left center;
+}
+
+.transition {
+    transition: 0.5s ease;
+}
+
+#close-select-group-menu-button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.right-aligned {
+    justify-content: right;
+    align-items: center;
+}
+
+#select-group-menu {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#select-group-menu-content {
+    background-color: white;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 15px 25px 25px 35px;
+    width: 400px;
+}
+
+#select-group-menu-list {
+    max-height: 400px;
+    overflow-y: auto;
+    list-style-type: none;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 15px 0;
+}
+
+#select-group-menu-list li {
+    color: #28497C;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#select-group-menu-list li:hover {
+    background-color: #eee;
+}
+
+.hidden#select-group-menu {
+    display: none;
+}
+
+.grayed-out, #select-group-menu-list li.grayed-out {
+    color: #aaa;
+}
+
+.left-corner-text {
+    margin-right: auto;
+}

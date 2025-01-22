@@ -1,0 +1,86 @@
+/* This program visualizes mathematical series in a browser.
+Copyright (C) 2025  Tobias Straube
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
+body {
+    font-family: sans-serif;
+    max-width: 1000px;
+}
+
+hr {
+    box-sizing: border-box;
+    margin: 0 20px;
+}
+
+img {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+}
+
+.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.small-gaps {
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.big-gaps {
+    row-gap: 25px;
+    column-gap: 25px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.with-margin {
+    margin: 25px 20px 25px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+#default-regex {
+    text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 120px;
+    padding: 1px 2px;
+    border-width: 2px;
+}
+
+#show-popup {
+    width: 14px;
+    margin: 1px 0 1px 114px;
+}
+
+#save-settings {
+    margin: 0;
+}

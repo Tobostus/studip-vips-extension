@@ -1,0 +1,51 @@
+<!-- This program visualizes mathematical series in a browser.
+Copyright (C) 2025  Tobias Straube
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stud.IP Vips Extension</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="A useful client-side extension to Stud.IP's Vips Plugin." />
+        <link rel="icon" href="icons/vipsextension-128.png" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/injected_style.css" />
+        <link rel="manifest" href="manifest.json" />
+        <script src="scripts/settings.js" defer></script>
+    </head>
+    <body>
+        <div class="row centered small-gaps">
+            <img src="icons/vipsextension-128.png" />
+            <h2>Stud.IP Vips Extension</h2>
+        </div>
+        <hr />
+        <div class="column with-margin big-gaps">
+            <div class="row centered big-gaps">
+                <div class="column big-gaps">
+                    <label for="show-popup" class="align-left">Pop-Up verwenden</label>
+                    <label for="default-regex" class="align-left">Standardeingabe</label>
+                </div>
+                <div class="column right-aligned big-gaps">
+                    <input type="checkbox" id="show-popup" checked />
+                    <input type="text" id="default-regex" placeholder="Regex" />
+                </div>
+            </div>
+            <div class="row right-aligned">
+                <button id="save-settings" class="injected-button transition">Speichern</button>
+            </div>
+        </div>
+    </body>
+</html>
