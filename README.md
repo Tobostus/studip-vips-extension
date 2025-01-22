@@ -1,6 +1,6 @@
-# ![icon](/extension/icons/vipsextension-32.png) Stud.IP Vips Extension
+# [![icon](/extension/icons/vipsextension-32.png)](https://github.com/Tobostus/studip-vips-extension/releases) Stud.IP Vips Extension
 
-Die **Stud.IP Vips Extension** erleichtert das Herunterladen von ausgewählten Abgaben und das Eintragen von Bewertungen in den [Vips](https://hilfe.studip.de/help/4.5/de/Vips/HomePage) von [Stud.IP](https://www.studip.de/).
+Die **Stud.IP Vips Extension** erleichtert das Herunterladen von ausgewählten Abgaben und das Eintragen von Bewertungen in den [Vips](https://hilfe.studip.de/help/4.5/de/Vips/HomePage) von [Stud.IP](https://www.studip.de/) durch Filtern mithilfe von [regulären Ausdrücken](#beispiele-für-reguläre-ausdrücke).
 
 ## Features
 
@@ -12,17 +12,19 @@ Die **Stud.IP Vips Extension** erleichtert das Herunterladen von ausgewählten A
 
 Aktuell ist die Extension nur offiziell für [Firefox](https://www.mozilla.org/de/firefox/new/) verfügbar.
 
-Lade die Extension unter [Releases](https://github.com/Tobostus/studip-vips-extension) herunter und installiere sie in den Einstellungen:
+Du kannst die `.xpi`-Datei der neusten Version der Extension unter [Releases](https://github.com/Tobostus/studip-vips-extension/releases) herunterladen und wie folgt in den Einstellungen installieren:
 
 > Add-ons und Themes $\rightarrow$ Erweiterungen $\rightarrow$ Zahnrad $\rightarrow$ Add-on aus Datei installieren
 
+**Alternativ** kannst du in einem [Firefox-Browser](https://www.mozilla.org/de/firefox/new/) einfach direkt auf die `.xpi`-Datei des neusten [Releases](https://github.com/Tobostus/studip-vips-extension/releases) klicken und die Installation erlauben.
+
 ## Verwendung
 
-_**Achtung**: Die [Navigationsfeatures](#navigation) funktionieren nur in einem Browsertab, in dem zuvor die Abgabeübersicht geöffnet wurde. Die vorhandenen Gruppennamen und Links zu zugehörigen Abgaben werden daraus extrahiert und zwischengespeichert._
+_**Achtung**: Die [Navigationsfeatures](#navigation) funktionieren nur in einem Browsertab, in dem zuvor die Abgabeübersicht geöffnet wurde. Die vorhandenen Gruppennamen und Links zu dazugehörenden Abgaben werden dort ausgelesen und zwischengespeichert._
 
 ### Einstellungen
 
-Unter deinen Erweiterungen in der Browserleiste kannst du die Einstellungen der Extension aufrufen:
+Unter den Erweiterungen in der Browserleiste kannst du die Einstellungen der Extension aufrufen:
 
 ![gotosettings](images/gotosettings.png)
 
@@ -30,11 +32,11 @@ Dann erscheint folgendes kleines Fenster, in dem du zwei Einstellungen treffen k
 
 ![settings](images/settings.png)
 
-* "Pop-Up verwenden" bestimmt, ob jedes Mal bei der Verwendung eines Buttons der Extension nach einem neuen regulären Ausdruck gefragt werden soll. Falls aktiviert, erscheint jeweils eine "Prompt", die die "Standardeingabe" enthält und von da veränderbar ist.
+* _"Pop-Up verwenden"_ bestimmt, ob jedes Mal bei der Verwendung eines Buttons der Extension nach einem neuen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) gefragt werden soll. Falls aktiviert, erscheint jeweils eine _Prompt_, die die _"Standardeingabe"_ enthält und von da veränderbar ist.
 
-* Falls du "Pop-Up verwenden" deaktivierst, werden immer direkt alle die Gruppen rausgefiltert, die den regulären Ausdruck in der "Standardeingabe" enthalten.
+* Falls du _"Pop-Up verwenden"_ deaktivierst, werden immer direkt die Gruppen ausgewählt, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) in der _"Standardeingabe"_ enthalten.
 
-* Um deine Änderungen zu übernehmen, drücke schließlich auf "Speichern". Der Button wird kurz grün, wenn das Speichern erfolgreich war.
+* Um deine Änderungen zu übernehmen, kannst du auf _"Speichern"_ drücken. Der Button wird kurz grün, wenn das Speichern erfolgreich war, und deine Einstellungen bleiben auch über Browser-Sitzungen hinweg gespeichert.
 
 ### Download
 
@@ -42,7 +44,7 @@ Die Extension fügt Seiten mit dem Pfad `/plugins.php/vipsplugin/solutions/assig
 
 ![settings](images/download.png)
 
-Dieser verwendet den eingegebenen regulären Ausdruck, um die Abgaben aller Gruppen, dessen Name ihn enthalten, im Sekundentakt in einzelnen .zip-Dateien herunterzuladen. Ein leerer regulärer Ausdruck lädt entsprechend alle Abgaben herunter, aber in einzelnen .zip-Dateien.
+Dieser lädt im Sekundentakt die Abgaben aller Gruppen, deren Namen den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, in einzelnen `.zip`-Dateien herunter. Ein leerer regulärer Ausdruck lädt entsprechend **alle** Abgaben in einzelnen `.zip`-Dateien herunter.
 
 ### Navigation
 
@@ -50,8 +52,31 @@ In der Detailansicht einer Aufgabe, also auf Seiten mit dem Pfad `/plugins.php/v
 
 ![settings](images/backward.png) ![settings](images/forward.png)
 
-Diese zwei Buttons springen zur vorherigen bzw. nächsten Gruppe, die den eingegebenen regulären Ausdruck beinhaltet.
+Diese zwei Buttons springen zur vorherigen bzw. nächsten Gruppe, dessen Name den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) beinhaltet.
 
 ![settings](images/selectionmenu.png)
 
-Dieser Button öffnet eine Liste von allen Gruppen, die den regulären Ausdruck enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen. Falls es bei einem Aufgabenblatt mehrere Aufgaben gibt, kann man zusätzlich die Aufgabe bestimmen, die man öffnen möchte.
+Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen.
+
+Falls es bei einem Aufgabenblatt mehrere Aufgaben gibt, kann man zusätzlich die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind dabei ausgegraut.
+
+## Beispiele für reguläre Ausdrücke
+
+Für eine detaillierte Erklärung von regulären Ausdrücken, siehe [Wikipedia](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck). Reguläre Ausdrücke werden auch mit **Regex** abgekürzt. Beispiele für eventuell nützliche reguläre Ausdrücke sind:
+
+| Regex | Ausgewählte Gruppennamen | Beispiele |
+| :-: | :- | :- |
+| ` ` | Alle. (_leerer Regex_) | `Gruppe 1`, `Gruppe 2`, `Gruppe 3`, ... |
+| `1` | Alle, die eine `1` enthalten. | `Gruppe 1`, `Gruppe 10`, `Gruppe 21`, ... |
+| `Max` | Alle, die `Max` enthalten. | `Max Mustermann`, `Gruppe_bei_Maximilian`, ... |
+| `2[0-9]` | Alle, die eine `2` gefolgt von einer weiteren Ziffer enthalten. | `Gruppe 20`, `Gruppe 21`, `Gruppe 200`, ... |
+| `(10\|20)` | Alle, die eine `10` oder `20` enthalten. | `Gruppe 10`, `Gruppe 20`, `10:00Uhr_bei_Max`, ... |
+| `^Max` | Alle, die mit `Max` beginnen. | `Max Mustermann`, `Maxine Mustermann`, ... |
+| `3$` | Alle, die auf `3` enden. | `Gruppe 3`, `Gruppe 13`, `Gruppe 23`, ... |
+| `(1[3-9]\|2[0-7])` | Alle, die eine Zahl zwischen `13` und `27` enthalten. | `Gruppe 13`, `Gruppe 14`, `Gruppe 126`, ... |
+| `(2[1-9]\|3[0-9]\|4[0-2])` | Alle, die eine Zahl zwischen `21` und `42` enthalten. | `Gruppe 23`, `Gruppe 30`, `Gruppe 42`, ... |
+| `([1-9]\|[1-9][0-9])` | Alle, die eine Zahl zwischen `1` und `99` enthalten. | `Gruppe 23`, `Gruppe 30`, `Gruppe 42`, ... |
+
+## Lizenz
+
+Dieses Projekt ist unter der GNU GPL-3.0 license lizensiert - siehe [LICENSE](LICENSE) für mehr Informationen. 
