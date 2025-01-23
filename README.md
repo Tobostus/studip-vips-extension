@@ -44,7 +44,7 @@ Die Extension fügt Seiten mit dem Pfad `/plugins.php/vipsplugin/solutions/assig
 
 ![settings](images/download.png)
 
-Dieser lädt im Sekundentakt die Abgaben aller Gruppen, deren Namen den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, in einzelnen `.zip`-Dateien herunter. Ein leerer regulärer Ausdruck lädt entsprechend **alle** Abgaben in einzelnen `.zip`-Dateien herunter.
+Dieser lädt die Abgaben aller Gruppen, deren Namen den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, in einzelnen `.zip`-Dateien herunter. Ein leerer regulärer Ausdruck lädt entsprechend **alle** Abgaben in einzelnen `.zip`-Dateien herunter.
 
 ### Navigation
 
@@ -73,9 +73,11 @@ Für eine detaillierte Erklärung von regulären Ausdrücken, siehe [Wikipedia](
 | `(10\|20)` | Alle, die eine `10` oder `20` enthalten. | `Gruppe 10`, `Gruppe 20`, `10:00Uhr_bei_Max`, ... |
 | `^Max` | Alle, die mit `Max` beginnen. | `Max Mustermann`, `Maxine Mustermann`, ... |
 | `3$` | Alle, die auf `3` enden. | `Gruppe 3`, `Gruppe 13`, `Gruppe 23`, ... |
+| `^Gruppe 10$` | Der, der genau `Gruppe 10` entspricht. | `Gruppe 10`. |
+| `10.*Max` | Alle, die `10` und `Max` in dieser Reihenfolge enthalten. | `10:00Uhr_bei_Max`, `Gruppe 10 bei Max`, ... |
 | `(1[3-9]\|2[0-7])` | Alle, die eine Zahl zwischen `13` und `27` enthalten. | `Gruppe 13`, `Gruppe 14`, `Gruppe 126`, ... |
 | `(2[1-9]\|3[0-9]\|4[0-2])` | Alle, die eine Zahl zwischen `21` und `42` enthalten. | `Gruppe 23`, `Gruppe 30`, `Gruppe 42`, ... |
-| `([1-9]\|[1-9][0-9])` | Alle, die eine Zahl zwischen `1` und `99` enthalten. | `Gruppe 23`, `Gruppe 30`, `Gruppe 42`, ... |
+| `([1-9]\|[1-9][0-9])` | Alle, die eine Zahl zwischen `1` und `99` enthalten. | `Gruppe 19`, `Gruppe 31`, `Gruppe 76`, ... |
 
 ## Lizenz
 

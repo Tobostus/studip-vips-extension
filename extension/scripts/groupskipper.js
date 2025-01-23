@@ -207,11 +207,11 @@ function buttonActionSelectMenu() {
     document.getElementById("select-group-menu").classList.remove('hidden');
 }
 
-function addGroupDownloadButton(index) {
+function addNavigationButton(index) {
     const list = getParentToAddListTo();
 
     if(list === null) {
-        console.log("Konnte den Button zum Skippen nicht einfügen.");
+        console.error(`Konnte Navigationsbutton ${index} nicht einfügen.`);
         return;
     }
 
@@ -275,5 +275,5 @@ getCurrentName();
 addSelectMenu();
 addStylesheet();
 for(let i = 0; i < 3; i++) {
-    addGroupDownloadButton(i);
+    addNavigationButton(i);
 }

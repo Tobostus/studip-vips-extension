@@ -58,7 +58,6 @@ function getListsOfLinksAndNames() {
         const nameParts = list.querySelector('a > span').innerHTML.split("\n");
         let name = "";
         for(let index in nameParts) {
-            console.log(nameParts[index]);
             if(index < 2) {
                 continue;
             }
@@ -71,33 +70,55 @@ function getListsOfLinksAndNames() {
     return [listOfLinks, listOfGroupNames, listOfDownloadButtons, listOfTaskNames];
 }
 
+async function requestDownload(url, filename) {
+    const response = await browser.runtime.sendMessage({
+        action: "download",
+        url: url,
+        filename: filename
+    });
+
+    if(response.error) {
+        console.error(`Fehler beim Starten des Downloads von "${filename}":`, response.error);
+        return;
+    }
+    console.log(`Download für "${filename}" erfolgreich gestartet.`);
+}
+
+function getSheetName() {
+    const heading = document.querySelectorAll("h1")[1];
+    return heading.innerText.split(`„`)[1].split(`“`)[0];
+}
+
+function getFilename(sheetName, groupName) {
+    return `${sheetName}-${groupName.replace(":", "_")}.zip`;
+}
+
 async function groupDownloadButtonAction() {
     const [regex, input] = getRegex("Gib hier den Regex an, den die Gruppennamen beinhalten, dessen Lösungen du herunterladen möchtest.", listOfGroupNames.length);
     if(input === null) {
         return;
     }
-    console.log(`Ich lade jetzt alle Dateien herunter, die zu Gruppen gehören, die den Regex "${input}" im Namen haben (ein Download pro Sekunde).`);
+    console.log(`Ich lade jetzt alle Dateien herunter, die zu Gruppen gehören, die den Regex "${input}" im Namen haben.`);
 
     let amountOfDownloads = 0;
     for(let index in listOfGroupNames) {
         if(regex.test(listOfGroupNames[index])) {
-            listOfDownloadButtons[index].click();
-            await new Promise(r => setTimeout(r, 1000));
+            await requestDownload(listOfDownloadButtons[index].href, getFilename(getSheetName(), listOfGroupNames[index]));
             amountOfDownloads++;
         }
     }
 
     if(amountOfDownloads > 0) {
-        console.log(`Das waren alle Downloads (${amountOfDownloads}) von Gruppen, die den Regex "${input}" enthalten.`);
+        console.log(`Das waren alle Downloads von Gruppen, die den Regex "${input}" im Namen haben (Anzahl: ${amountOfDownloads}).`);
     } else {
-        window.alert(`Es gibt keine Downloads von Gruppen, die den Regex "${input}" enthalten.`);
+        window.alert(`Es gibt keine Downloads von Gruppen, die den Regex "${input}" im Namen haben.`);
     }
 }
 
 function addButton(text, buttonAction) {
     const list = getParentToAddListTo();
     if(list === null) {
-        console.log("Konnte den Button zum Herunterladen nicht einfügen.");
+        console.error("Konnte den Button zum Herunterladen nicht einfügen.");
         return;
     }
 
