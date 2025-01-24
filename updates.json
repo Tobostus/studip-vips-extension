@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "{3482e542-e8c6-468e-8a4e-9b86e9c12961}": {
+      "updates": [
+        {
+          "version": "1.2.0",
+          "update_link": "https://github.com/Tobostus/studip-vips-extension/releases/download/v1.2.0/studip-vips-extension-v1.2.0-firefox.xpi"
+        }
+      ]
+    }
+  }
+}

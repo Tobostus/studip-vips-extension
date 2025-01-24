@@ -38,7 +38,11 @@ function getListsOfLinksAndNames() {
         if(link.querySelector('.solution-none')) {
             solution = false;
         }
-        innerList.push({link: link.href, solution: solution});
+        let corrected = false;
+        if(link.querySelector('.solution-corrected')) {
+            corrected = true;
+        }
+        innerList.push({link: link.href, solution: solution, corrected: corrected});
     }
     listOfLinks.push(innerList);
 

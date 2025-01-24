@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Stud.IP Vips Extension",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Tobostus",
   "homepage_url": "https://github.com/Tobostus/studip-vips-extension",
 
@@ -17,7 +17,8 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "{3482e542-e8c6-468e-8a4e-9b86e9c12961}"
+      "id": "{3482e542-e8c6-468e-8a4e-9b86e9c12961}",
+      "update_url": "https://raw.githubusercontent.com/Tobostus/studip-vips-extension/refs/heads/main/updates.json"
     }
   },
 

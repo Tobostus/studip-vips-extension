@@ -18,6 +18,12 @@ Du kannst die `.xpi`-Datei der neusten Version der Extension unter [Releases](ht
 
 **Alternativ** kannst du in einem [Firefox-Browser](https://www.mozilla.org/de/firefox/new/) einfach direkt auf die `.xpi`-Datei des neusten [Releases](https://github.com/Tobostus/studip-vips-extension/releases) klicken und die Installation erlauben.
 
+## Aktualisierung
+
+Ab Version `1.2.0` ist die automatische Aktualisierung verfügbar und kann in [Firefox](https://www.mozilla.org/de/firefox/new/)' Einstellungen aktiviert werden.
+
+Für ältere Versionen, oder falls man die Updates manuell durchführen will, kann man einfach die [Schritte zur Installation](#installation) wiederholen - so wird die alte Version überschrieben.
+
 ## Verwendung
 
 _**Achtung**: Die [Navigationsfeatures](#navigation) funktionieren nur in einem Browsertab, in dem zuvor die Abgabeübersicht geöffnet wurde. Die vorhandenen Gruppennamen und Links zu dazugehörenden Abgaben werden dort ausgelesen und zwischengespeichert._
@@ -56,9 +62,9 @@ Diese zwei Buttons springen zur vorherigen bzw. nächsten Gruppe, dessen Name de
 
 ![settings](images/selectionmenu.png)
 
-Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen.
+Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen. Gruppen, von denen alle Abgaben bereits korrigiert sind, werden grün markiert.
 
-Falls es bei einem Aufgabenblatt mehrere Aufgaben gibt, kann man zusätzlich die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind dabei ausgegraut.
+Falls es bei einem Aufgabenblatt mehrere Aufgaben gibt, kann man zusätzlich die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind dabei ausgegraut. Bereits korrigierte Abgaben sind grün markiert.
 
 ## Beispiele für reguläre Ausdrücke
 

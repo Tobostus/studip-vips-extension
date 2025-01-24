@@ -149,7 +149,9 @@ function populateSelectMenuWithSubMenu(outerIndex) {
         li.addEventListener('click', function() {
             openLinkAtIndex(outerIndex, innerIndex, "");
         });
-        if(!listOfLinks[outerIndex][innerIndex].solution) {
+        if(listOfLinks[outerIndex][innerIndex].corrected) {
+            li.classList.add("greened-in");
+        } else if(!listOfLinks[outerIndex][innerIndex].solution) {
             li.classList.add("grayed-out");
         }
         menuList.appendChild(li);
@@ -188,6 +190,13 @@ function populateSelectMenu(useOldInput = false) {
                 openLinkAtIndex(index, 0, input);
             }
         });
+        let corrected = true;
+        for(let task of listOfLinks[index]) {
+            corrected &= task.corrected || !task.solution;
+        }
+        if(corrected) {
+            li.classList.add("greened-in");
+        }
         menuList.appendChild(li);
     }
     if(menuList.children.length === 0) {
@@ -216,19 +225,21 @@ function addNavigationButton(index) {
     }
 
     let additionalButton = document.createElement("button");
-    additionalButton.setAttribute("class", "injected-button");
+    additionalButton.setAttribute("class", "injected-button small");
     let event;
     switch(index) {
         case 0:
-            additionalButton.innerHTML = "<<";
+            additionalButton.innerText = "<<";
             event = buttonActionBackward;
             break;
         case 1:
-            additionalButton.innerHTML = ">>";
+            additionalButton.innerText = ">>";
             event = buttonActionForward;
             break;
         case 2:
-            additionalButton.innerHTML = ". . .";
+            let listIcon = document.createElement("img");
+            listIcon.src = browser.runtime.getURL("../icons/open-list.png");
+            additionalButton.appendChild(listIcon);
             event = buttonActionSelectMenu;
             break;
     }

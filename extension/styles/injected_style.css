@@ -26,12 +26,23 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
     margin: 3px;
 }
 
+.injected-button.small {
+    box-sizing: content-box;
+    width: 20px;
+    height: 20px;
+}
+
 .injected-button:hover {
     background-position: 75% center;
 }
 
 .injected-button.green  {
     background-position: left center;
+}
+
+.injected-button > img {
+    width: 16px;
+    height: 16px;
 }
 
 .transition {
@@ -93,6 +104,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 .grayed-out, #select-group-menu-list li.grayed-out {
     color: #aaa;
+}
+
+#select-group-menu-list li.greened-in {
+    color: green;
 }
 
 .left-corner-text {
