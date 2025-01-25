@@ -14,29 +14,36 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-const saveButton = document.getElementById("save-settings");
 const showPopupToggle = document.getElementById("show-popup");
 const defaultRegexText = document.getElementById("default-regex");
+const correctedGreenToggle = document.getElementById("make-corrected-green");
+const uncorrectedRedToggle = document.getElementById("make-uncorrected-red");
+const saveButton = document.getElementById("save-settings");
 
 function loadFromStorage() {
-    browser.storage.local.get(['popup'], function(result) {
+    browser.storage.local.get(['popup', 'defaultRegex', 'correctedGreen', 'uncorrectedRed'], result => {
         if(result.popup != null) {
             showPopupToggle.checked = result.popup;
         }
-    })
-    
-    browser.storage.local.get(['defaultRegex'], function(result) {
         if(result.defaultRegex != null) {
             defaultRegexText.value = result.defaultRegex;
         }
-    })
+        if(result.correctedGreen != null) {
+            correctedGreenToggle.checked = result.correctedGreen;
+        }
+        if(result.uncorrectedRed != null) {
+            uncorrectedRedToggle.checked = result.uncorrectedRed;
+        }
+    });
 }
 
 function saveChanges() {
     const popup = showPopupToggle.checked;
     const defaultRegex = defaultRegexText.value;
+    const correctedGreen = correctedGreenToggle.checked;
+    const uncorrectedRed = uncorrectedRedToggle.checked;
     
-    browser.storage.local.set({popup: popup, defaultRegex: defaultRegex}, function() {
+    browser.storage.local.set({popup: popup, defaultRegex: defaultRegex, correctedGreen: correctedGreen, uncorrectedRed: uncorrectedRed}, () => {
         console.log("Eingaben gespeichert!");
         saveButton.classList.add("green");
         setTimeout(() => {

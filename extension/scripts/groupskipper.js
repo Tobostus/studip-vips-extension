@@ -150,9 +150,13 @@ function populateSelectMenuWithSubMenu(outerIndex) {
             openLinkAtIndex(outerIndex, innerIndex, "");
         });
         if(listOfLinks[outerIndex][innerIndex].corrected) {
-            li.classList.add("greened-in");
+            if(correctedGreen) {
+                li.classList.add("greened-in");
+            }
         } else if(!listOfLinks[outerIndex][innerIndex].solution) {
             li.classList.add("grayed-out");
+        } else if(uncorrectedRed) {
+            li.classList.add("redded-in");
         }
         menuList.appendChild(li);
     }
@@ -191,11 +195,19 @@ function populateSelectMenu(useOldInput = false) {
             }
         });
         let corrected = true;
+        let atLeastOneSolution = false;
         for(let task of listOfLinks[index]) {
             corrected &= task.corrected || !task.solution;
+            atLeastOneSolution |= task.solution;
         }
-        if(corrected) {
-            li.classList.add("greened-in");
+        if(!atLeastOneSolution) {
+            li.classList.add("grayed-out");
+        } else if(corrected) {
+            if(correctedGreen) {
+                li.classList.add("greened-in");
+            }
+        } else if(uncorrectedRed) {
+            li.classList.add("redded-in");
         }
         menuList.appendChild(li);
     }

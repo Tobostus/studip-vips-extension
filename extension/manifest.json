@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Stud.IP Vips Extension",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Tobostus",
   "homepage_url": "https://github.com/Tobostus/studip-vips-extension",
 
-  "description": "Adds more precise options for download and navigation in the Vips tab of Stud.IP by using regular expressions for group names.",
+  "description": "Erweiterte Optionen für das Navigieren und Herunterladen von Abgaben im Vips-Tab von Stud.IP.",
 
   "icons": {
     "16": "icons/vipsextension-16.png",

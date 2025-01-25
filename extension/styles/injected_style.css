@@ -98,7 +98,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
     background-color: #eee;
 }
 
-.hidden#select-group-menu {
+#select-group-menu.hidden {
     display: none;
 }
 
@@ -108,6 +108,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #select-group-menu-list li.greened-in {
     color: green;
+}
+
+#select-group-menu-list li.redded-in {
+    color: red;
 }
 
 .left-corner-text {

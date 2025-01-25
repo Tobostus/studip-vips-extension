@@ -33,14 +33,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         </div>
         <hr />
         <div class="column with-margin big-gaps">
-            <div class="row centered big-gaps">
-                <div class="column big-gaps">
+            <div class="category column big-gaps">
+                <h3 class="row">Eingabe Regulärer Ausdruck</h3>
+                <div class="row big-gaps">
                     <label for="show-popup" class="align-left">Pop-Up verwenden</label>
-                    <label for="default-regex" class="align-left">Standardeingabe</label>
+                    <input type="checkbox" id="show-popup" class="put-self-right" checked />
                 </div>
-                <div class="column right-aligned big-gaps">
-                    <input type="checkbox" id="show-popup" checked />
-                    <input type="text" id="default-regex" placeholder="Regex" />
+                <div class="row big-gaps">
+                    <label for="default-regex" class="align-left">Standardeingabe</label>
+                    <input type="text" id="default-regex" class="put-self-right" placeholder="Regex" />
+                </div>
+            </div>
+            <div class="category column big-gaps">
+                <h3 class="row">Farbliche Markierungen in Liste</h3>
+                <div class="row big-gaps">
+                    <label for="make-corrected-green" class="align-left">Korrigiertes: grün</label>
+                    <input type="checkbox" id="make-corrected-green" class="put-self-right" checked />
+                </div>
+                <div class="row big-gaps">
+                    <label for="make-uncorrected-red" class="align-left">Unkorrigiertes: rot</label>
+                    <input type="checkbox" id="make-uncorrected-red" class="put-self-right" unchecked />
                 </div>
             </div>
             <div class="row right-aligned">

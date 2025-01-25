@@ -4,9 +4,11 @@ Die **Stud.IP Vips Extension** erleichtert das Herunterladen von ausgewählten A
 
 ## Features
 
-* Download von Abgaben bestimmter Gruppen
+* Schneller **Download** von Abgaben bestimmter Gruppen ( [$\downarrow$](#download) )
 
-* Springen zu bestimmten Gruppen zum Eintragen der Bewertung
+* **Springen** zu bestimmten Gruppen zum Eintragen der Bewertungen ( [$\downarrow$](#vor--und-zurückspringen) )
+
+* Anschauliche **Übersicht** über ausgewählte Abgaben von der Detailansicht einer Aufgabe aus ( [$\downarrow$](#auswahlliste) )
 
 ## Installation
 
@@ -26,8 +28,6 @@ Für ältere Versionen, oder falls man die Updates manuell durchführen will, ka
 
 ## Verwendung
 
-_**Achtung**: Die [Navigationsfeatures](#navigation) funktionieren nur in einem Browsertab, in dem zuvor die Abgabeübersicht geöffnet wurde. Die vorhandenen Gruppennamen und Links zu dazugehörenden Abgaben werden dort ausgelesen und zwischengespeichert._
-
 ### Einstellungen
 
 Unter den Erweiterungen in der Browserleiste kannst du die Einstellungen der Extension aufrufen:
@@ -38,33 +38,47 @@ Dann erscheint folgendes kleines Fenster, in dem du zwei Einstellungen treffen k
 
 ![settings](images/settings.png)
 
-* _"Pop-Up verwenden"_ bestimmt, ob jedes Mal bei der Verwendung eines Buttons der Extension nach einem neuen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) gefragt werden soll. Falls aktiviert, erscheint jeweils eine _Prompt_, die die _"Standardeingabe"_ enthält und von da veränderbar ist.
+* **Pop-Up verwenden**: Bestimmt, ob jedes Mal bei der Verwendung eines Buttons der Extension nach einem neuen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) gefragt werden soll. Falls aktiviert, erscheint jeweils eine _Prompt_, die die _"Standardeingabe"_ enthält und von da aus veränderbar ist.
 
-* Falls du _"Pop-Up verwenden"_ deaktivierst, werden immer direkt die Gruppen ausgewählt, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) in der _"Standardeingabe"_ enthalten.
+* **Standardeingabe**: Falls du _"Pop-Up verwenden"_ deaktivierst, werden immer direkt die Gruppen ausgewählt, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) in der _"Standardeingabe"_ enthalten.
 
-* Um deine Änderungen zu übernehmen, kannst du auf _"Speichern"_ drücken. Der Button wird kurz grün, wenn das Speichern erfolgreich war, und deine Einstellungen bleiben auch über Browser-Sitzungen hinweg gespeichert.
+* **Korrigiertes: grün**: Falls aktiviert, werden in der [Auswahlliste](#auswahlliste) Gruppen, von denen alle Abgaben bereits korrigiert sind, **grün** markiert. Falls es auf einem Aufgabenblatt mehrere Aufgaben gibt, werden im Untermenü die einzelnen bereits korrigierten Aufgaben **grün** markiert. Falls deaktiviert, sind Listeneinträge, die sonst **grün** wären, **blau**.
+
+* **Unkorrigiertes: rot**: Falls aktiviert, werden in der [Auswahlliste](#auswahlliste) Gruppen, von denen noch nicht alle Abgaben korrigiert wurden, **rot** markiert. Falls es auf einem Aufgabenblatt mehrere Aufgaben gibt, werden im Untermenü die einzelnen unkorrigierten Abgaben **rot** markiert. Falls deaktiviert, sind Listeneinträge, die sonst **rot** wären, **blau**.
+
+* **Speichern**: Um deine Änderungen zu übernehmen, kannst du auf _"Speichern"_ drücken. Der Button wird kurz grün, wenn das Speichern erfolgreich war, und deine Einstellungen bleiben auch über Browser-Sitzungen hinweg gespeichert.
 
 ### Download
 
 Die Extension fügt Seiten mit dem Pfad `/plugins.php/vipsplugin/solutions/assignment_solutions?...` einen Button zum Herunterladen hinzu:
 
-![settings](images/download.png)
+![download](images/download.png)
 
 Dieser lädt die Abgaben aller Gruppen, deren Namen den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, in einzelnen `.zip`-Dateien herunter. Ein leerer regulärer Ausdruck lädt entsprechend **alle** Abgaben in einzelnen `.zip`-Dateien herunter.
 
 ### Navigation
 
+_**Achtung**: Die [Navigationsfeatures](#navigation) funktionieren nur in einem Browsertab, in dem zuvor die Abgabeübersicht geöffnet wurde. Die vorhandenen Gruppennamen und Links zu dazugehörenden Abgaben werden dort ausgelesen und zwischengespeichert._
+
 In der Detailansicht einer Aufgabe, also auf Seiten mit dem Pfad `/plugins.php/vipsplugin/solutions/edit_solution?...`, fügt die Extension folgende drei Buttons hinzu:
 
-![settings](images/backward.png) ![settings](images/forward.png)
+#### Vor- und zurückspringen
+
+![backward](images/backward.png) ![forward](images/forward.png)
 
 Diese zwei Buttons springen zur vorherigen bzw. nächsten Gruppe, dessen Name den eingegebenen [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) beinhaltet.
 
-![settings](images/selectionmenu.png)
+#### Auswahlliste
 
-Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen. Gruppen, von denen alle Abgaben bereits korrigiert sind, werden grün markiert.
+![selectionmenu](images/selectionmenu.png)
 
-Falls es bei einem Aufgabenblatt mehrere Aufgaben gibt, kann man zusätzlich die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind dabei ausgegraut. Bereits korrigierte Abgaben sind grün markiert.
+Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen. Gruppen, die nichts abgegeben haben, sind ausgegraut.
+
+Es können hier genau die Gruppennamen auftauchen, die in der Abgabeübersicht sichtbar waren (siehe [Warnung](#navigation)). D.h. es sollten keine ausgegrauten Gruppen sichtbar sein, falls ihr in der Übersicht _"Studierende mit abgegebenen Lösungen"_ ausgewählt habt.
+
+Falls es auf einem Aufgabenblatt mehrere Aufgaben gibt, kann man nach der Auswahl der Gruppe die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind ausgegraut.
+
+Je nach [Einstellungen](#einstellungen) werden Aufgaben oder Gruppennamen ggf. **grün** oder **rot** markiert.
 
 ## Beispiele für reguläre Ausdrücke
 

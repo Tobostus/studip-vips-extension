@@ -16,7 +16,7 @@
 
 console.log("Die Stud.IP Vips Extension ist jetzt aktiv.");
 
-let popup = true, defaultRegex = "";
+let popup = true, defaultRegex = "", correctedGreen = true, uncorrectedRed = false;
 
 function getRegex(msg, amountOfCandidates = 0) {
     if(amountOfCandidates === 0) {
@@ -42,20 +42,23 @@ function addStylesheet() {
 }
 
 function loadSettings() {
-    browser.storage.local.get(['popup'], function(result) {
+    browser.storage.local.get(['popup', 'defaultRegex', 'correctedGreen', 'uncorrectedRed'], result => {
         if(result.popup != null) {
             popup = result.popup;
         }
-    })
-    
-    browser.storage.local.get(['defaultRegex'], function(result) {
         if(result.defaultRegex != null) {
             defaultRegex = result.defaultRegex;
         }
-    })
+        if(result.correctedGreen != null) {
+            correctedGreen = result.correctedGreen;
+        }
+        if(result.uncorrectedRed != null) {
+            uncorrectedRed = result.uncorrectedRed;
+        }
+    });
 }
 
-browser.storage.onChanged.addListener(function(changes, areaName) {
+browser.storage.onChanged.addListener((changes, areaName) => {
     if(areaName === "local") {
         loadSettings();
     }
