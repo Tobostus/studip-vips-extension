@@ -4,11 +4,11 @@ Die **Stud.IP Vips Extension** erleichtert das Herunterladen von ausgewählten A
 
 ## Features
 
-* Schneller **Download** von Abgaben bestimmter Gruppen ( [$\downarrow$](#download) )
+* Schneller **Download** von Abgaben bestimmter Gruppen ( [&darr;](#download) )
 
-* **Springen** zu bestimmten Gruppen zum Eintragen der Bewertungen ( [$\downarrow$](#vor--und-zurückspringen) )
+* **Springen** zu bestimmten Gruppen zum Eintragen der Bewertungen ( [&darr;](#vor--und-zurückspringen) )
 
-* Anschauliche **Übersicht** über ausgewählte Abgaben von der Detailansicht einer Aufgabe aus ( [$\downarrow$](#auswahlliste) )
+* Anschauliche **Übersicht** über ausgewählte Abgaben von der Detailansicht einer Aufgabe aus ( [&darr;](#auswahlliste) )
 
 ## Installation
 
