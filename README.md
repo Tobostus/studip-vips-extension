@@ -34,7 +34,7 @@ Unter den Erweiterungen in der Browserleiste kannst du die Einstellungen der Ext
 
 ![gotosettings](images/gotosettings.png)
 
-Dann erscheint folgendes kleines Fenster, in dem du zwei Einstellungen treffen kannst:
+Dann erscheint dieses kleine Fenster, in dem folgende Einstellungen treffen kannst:
 
 ![settings](images/settings.png)
 
