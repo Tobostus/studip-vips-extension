@@ -1,4 +1,4 @@
-// This program visualizes mathematical series in a browser.
+// This browser extension helps tutors manage Vips on Stud.IP.
 // Copyright (C) 2025  Tobias Straube
 
 // This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,10 @@ function getParentToAddListTo() {
         }
     }
     return null;
+}
+
+function getParentToAddNavButtonsTo() {
+    return document.querySelector("caption");
 }
 
 function getListsOfLinksAndNames() {
@@ -97,7 +101,7 @@ function getFilename(sheetName, groupName) {
     return `${sheetName}-${groupName.replace(":", "_")}.zip`;
 }
 
-async function groupDownloadButtonAction() {
+async function groupDownloadButtonAction(listOfGroupNames, listOfDownloadButtons) {
     const [regex, input] = getRegex("Gib hier den Regex an, den die Gruppennamen beinhalten, dessen Lösungen du herunterladen möchtest.", listOfGroupNames.length);
     if(input === null) {
         return;
@@ -138,8 +142,8 @@ function addButton(text, buttonAction) {
     }, "500");
 }
 
-function addGroupDownloadButton() {
-    addButton("Abgaben nach Gruppennamen herunterladen", groupDownloadButtonAction);
+function addGroupDownloadButton(listOfGroupNames, listOfDownloadButtons) {
+    addButton("Abgaben nach Gruppennamen herunterladen", () => groupDownloadButtonAction(listOfGroupNames, listOfDownloadButtons));
 }
 
 function saveListOfLinks(listOfLinks, listOfGroupNames) {
@@ -148,8 +152,10 @@ function saveListOfLinks(listOfLinks, listOfGroupNames) {
     sessionStorage.setItem('listOfTaskNames', JSON.stringify(listOfTaskNames));
 }
 
-const [listOfLinks, listOfGroupNames, listOfDownloadButtons, listOfTaskNames] = getListsOfLinksAndNames();
-saveListOfLinks(listOfLinks, listOfGroupNames, listOfTaskNames);
-addStylesheet();
-addGroupDownloadButton();
-loadSettings();
+function initialize() {
+    [listOfLinks, listOfGroupNames, listOfDownloadButtons, listOfTaskNames] = getListsOfLinksAndNames();
+    saveListOfLinks(listOfLinks, listOfGroupNames, listOfTaskNames);
+    addStylesheet();
+    addGroupDownloadButton(listOfGroupNames, listOfDownloadButtons);
+    loadSettings();
+}

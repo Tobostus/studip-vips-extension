@@ -1,4 +1,4 @@
-// This program visualizes mathematical series in a browser.
+// This browser extension helps tutors manage Vips on Stud.IP.
 // Copyright (C) 2025  Tobias Straube
 
 // This program is free software: you can redistribute it and/or modify

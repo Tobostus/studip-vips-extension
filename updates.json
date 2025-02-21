@@ -9,6 +9,10 @@
         {
           "version": "1.2.1",
           "update_link": "https://github.com/Tobostus/studip-vips-extension/releases/download/v1.2.1/studip-vips-extension-v1.2.1-firefox.xpi"
+        },
+        {
+          "version": "1.2.2",
+          "update_link": "https://github.com/Tobostus/studip-vips-extension/releases/download/v1.2.2/studip-vips-extension-v1.2.2-firefox.xpi"
         }
       ]
     }

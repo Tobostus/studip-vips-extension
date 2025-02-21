@@ -22,7 +22,7 @@ Du kannst die `.xpi`-Datei der neusten Version der Extension unter [Releases](ht
 
 ## Aktualisierung
 
-Ab Version `1.2.0` ist die automatische Aktualisierung verfügbar und kann in [Firefox](https://www.mozilla.org/de/firefox/new/)' Einstellungen aktiviert werden.
+Ab Version [`1.2.0`](https://github.com/Tobostus/studip-vips-extension/releases) ist die automatische Aktualisierung verfügbar und kann in [Firefox](https://www.mozilla.org/de/firefox/new/)' Einstellungen aktiviert werden.
 
 Für ältere Versionen, oder falls man die Updates manuell durchführen will, kann man einfach die [Schritte zur Installation](#installation) wiederholen - so wird die alte Version überschrieben.
 
@@ -74,7 +74,7 @@ Diese zwei Buttons springen zur vorherigen bzw. nächsten Gruppe, dessen Name de
 
 Dieser Button öffnet eine Liste mit allen Gruppennamen, die den [regulären Ausdruck](#beispiele-für-reguläre-ausdrücke) enthalten, und lässt durch Klicken auf einen Gruppennamen zu der Detailansicht für die entsprechende Gruppe springen. Gruppen, die nichts abgegeben haben, sind ausgegraut.
 
-Es können hier genau die Gruppennamen auftauchen, die in der Abgabeübersicht sichtbar waren (siehe [Warnung](#navigation)). D.h. es sollten keine ausgegrauten Gruppen sichtbar sein, falls ihr in der Übersicht _"Studierende mit abgegebenen Lösungen"_ ausgewählt habt.
+Es können hier genau die Gruppennamen auftauchen, die in der Abgabeübersicht sichtbar waren (siehe [Warnung](#navigation)). D.h. es sollten keine ausgegrauten Gruppen sichtbar sein, falls ihr in der Übersicht _"Studierende mit abgegebenen Lösungen"_ ausgewählt habt. Ab Version [`1.2.2`](https://github.com/Tobostus/studip-vips-extension/releases) ist dieser Button auch in der Abgabeübersicht selbst sichtbar.
 
 Falls es auf einem Aufgabenblatt mehrere Aufgaben gibt, kann man nach der Auswahl der Gruppe die Aufgabe auswählen, die man öffnen will. Aufgaben, die nicht abgegeben wurden, sind ausgegraut.
 

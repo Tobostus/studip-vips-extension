@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Stud.IP Vips Extension",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Tobostus",
   "homepage_url": "https://github.com/Tobostus/studip-vips-extension",
 
@@ -30,11 +30,11 @@
   "content_scripts": [
     {
       "matches": ["*://*/plugins.php/vipsplugin/solutions/assignment_solutions?*"],
-      "js": ["scripts/general.js", "scripts/vipsextension.js"]
+      "js": ["scripts/general.js", "scripts/vipsextension.js", "scripts/groupselector.js"]
     },
     {
       "matches": ["*://*/plugins.php/vipsplugin/solutions/edit_solution?*"],
-      "js": ["scripts/general.js", "scripts/groupskipper.js"]
+      "js": ["scripts/general.js", "scripts/groupskipper.js", "scripts/groupselector.js"]
     }
   ],
 
